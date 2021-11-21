@@ -4,15 +4,14 @@
 
 mod types;
 
-use types::number;
-use types::string;
-
 fn test_types() {
     println!();
     println!();
     println!("================== types start ================");
-    number::print();
-    string::print();
+    types::number::print();
+    types::string::print();
+    types::tuple::print();
+    types::array::print();
     println!("================== types end ================");
     println!();
     println!();
