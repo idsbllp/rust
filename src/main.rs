@@ -1,28 +1,13 @@
-// mod demo;
-// use demo::ferris_says;
-// use demo::rand;
-
 mod types;
+mod control_flow;
 
-fn test_types() {
-    println!();
-    println!();
-    println!("================== types start ================");
-    types::number::print();
-    types::string::print();
-    types::tuple::print();
-    types::array::print();
-    println!("================== types end ================");
-    println!();
-    println!();
-}
 
 fn main() {
     // ferris_says::print();
     // rand::guess();
+    types::print();
 
-    test_types();
+    control_flow::print();
 
     println!("Hello, world!");
 }
-
