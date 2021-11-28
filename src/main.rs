@@ -1,5 +1,6 @@
 mod types;
 mod control_flow;
+mod owner_ship;
 
 
 fn main() {
@@ -8,6 +9,8 @@ fn main() {
     types::print();
 
     control_flow::print();
+
+    owner_ship::print();
 
     println!("Hello, world!");
 }
