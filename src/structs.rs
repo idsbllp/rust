@@ -24,6 +24,12 @@ fn build_user(username: String) -> User {
 #[derive(Debug)]
 struct Point(i32, i32, i32);
 
+impl Point {
+  fn print(&self) {
+    println!("manual display for Point: x: {}, y: {}, z: {}", self.0, self.1, self.2)
+  }
+}
+
 struct AlwaysEqual;
 
 pub fn print() {
@@ -42,10 +48,12 @@ pub fn print() {
   let _object = AlwaysEqual;
 
   println!("\n\n================== struct start ================");
-  println!("me: {:?}", me);
+  println!("me: {:#?}", me);
   me.email = String::from("liliping@gmail.com");
   println!("after modify me: {}", me);
   println!("other_user: {}", other_user);
   println!("point: {:?},   x: {1}", point, x);
+  dbg!(&point);
+  point.print();
   println!("================== struct end ================\n");
 }
