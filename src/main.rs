@@ -11,11 +11,11 @@ fn main() {
 
     control_flow::print();
 
-    owner_ship::print();
-
     structs::print();
-
+    
     enums::print();
+
+    owner_ship::print();
 
     println!("Hello, world!");
 }
