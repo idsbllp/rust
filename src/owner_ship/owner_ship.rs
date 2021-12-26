@@ -27,6 +27,7 @@ pub fn print() {
 
   println!("x is '{}', its length is {}, new_str is '{}'", str, len, mut_str);
   mut_and_immut();
+  slice();
 }
 
 fn calculate_length(s: &String) -> usize {
@@ -47,4 +48,24 @@ fn mut_and_immut() {
 
   let r3 = &mut s; // no problem
   println!("{}", r3);
+}
+
+fn slice() {
+  let string = String::from("Hello World");
+
+  let hello = first_word(&string);
+
+  println!("slice 111: {}", hello);
+}
+
+fn first_word(string: &String) -> &str {
+  let bytes = string.as_bytes();
+
+  for (i, &item) in bytes.iter().enumerate() {
+    if item == b' ' {
+      return &string[..i];
+    }
+  }
+
+  return &string[..];
 }
