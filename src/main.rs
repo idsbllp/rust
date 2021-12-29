@@ -1,6 +1,6 @@
 mod types;
 mod control_flow;
-mod owner_ship;
+mod ownership;
 mod structs;
 mod enums;
 
@@ -15,7 +15,7 @@ fn main() {
     
     enums::print();
 
-    owner_ship::print();
+    ownership::print();
 
     println!("Hello, world!");
 }
