@@ -1,21 +1,31 @@
+use std::env;
+
 mod types;
 mod control_flow;
 mod ownership;
 mod structs;
 mod enums;
+mod server;
 
 fn main() {
-    // ferris_says::print();
-    // rand::guess();
-    types::print();
+    let args: Vec<String> = env::args().collect();
+    let build_type = &args[1];
 
-    control_flow::print();
-
-    structs::print();
+    if build_type == "server" {
+        server::print();
+    } else {
+        // ferris_says::print();
+        // rand::guess();
+        types::print();
     
-    enums::print();
-
-    ownership::print();
+        control_flow::print();
+    
+        ownership::print();
+    
+        structs::print();
+    
+        enums::print();
+    }
 
     println!("Hello, world!");
 }
