@@ -7,6 +7,7 @@ mod structs;
 mod enums;
 mod server;
 mod manage_project;
+mod collections;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -29,6 +30,8 @@ fn main() {
     enums::print();
 
     manage_project::print();
+
+    collections::print();
 
     println!("Hello, world!");
 }
