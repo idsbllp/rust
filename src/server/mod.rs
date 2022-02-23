@@ -6,6 +6,8 @@ use std::net::TcpStream;
 pub fn print() {
   let listener = TcpListener::bind("127.0.0.1:5757").unwrap();
 
+  println!("Server running at http://127.0.0.1:5757");
+
   for stream in listener.incoming() {
     let new_stream = stream.unwrap();
 
