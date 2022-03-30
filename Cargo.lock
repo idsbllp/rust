@@ -88,6 +88,7 @@ version = "0.1.0"
 dependencies = [
  "ferris-says",
  "rand",
+ "thread_pool",
 ]
 
 [[package]]
@@ -111,6 +112,10 @@ dependencies = [
  "smawk",
  "unicode-width",
 ]
+
+[[package]]
+name = "thread_pool"
+version = "0.0.1"
 
 [[package]]
 name = "unicode-width"

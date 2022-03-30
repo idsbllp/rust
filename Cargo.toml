@@ -8,6 +8,7 @@ edition = "2021"
 [dependencies]
 ferris-says = "0.2"
 rand = "0.8.4"
+thread_pool = { path = "./thread_pool" }
 
 # cargo watch -x run
 # cargo watch -x 'run -- server'
