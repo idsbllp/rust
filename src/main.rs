@@ -13,7 +13,7 @@ fn main() {
     let args: Vec<String> = env::args().collect();
     let build_type = args.get(1);
     if build_type == Some(&"server".to_string()) {
-        server::print();
+        server::start();
         return;
     }
 
