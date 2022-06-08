@@ -63,6 +63,42 @@ fn second(string: String) -> String {
   return res;
 }
 
+/**
+ * Using a hash map and vectors, create a text interface to allow a user
+ * to add employeenames to a department in a company.
+ * For example, "Add Sally to Engineering" or "Add Amir to Sales"
+ * Then let the user retrieve a list of all people in a department
+ * or all people in the company by department, sorted alphabetically.
+ */
+#[derive(Debug, Clone)]
+struct Third {
+  _department: HashMap<String, Vec<String>>,
+}
+
+impl Third {
+  pub fn new() -> Third {
+    Third { _department: HashMap::new() }
+  }
+
+  pub fn get_all_people(self, department: String) -> Result<Vec<String>, String> {
+    let people = self._department.get(&department).ok_or("have no this department")?;
+    let mut sorted_people = people.to_vec();
+    sorted_people.sort();
+    Ok(sorted_people)
+  }
+
+  pub fn add(&mut self, string: String) -> Result<(), String> {
+    let string_vec: Vec<&str> = string.split(" ").collect();
+    let &name = string_vec.get(1).ok_or("has no first value")?;
+    let &department = string_vec.get(3).ok_or("has no third value")?;
+
+    let new_people = self._department.entry(String::from(department)).or_insert(Vec::new());
+    new_people.push(String::from(name));
+
+    Ok(())
+  }
+}
+
 pub fn print() {
   println!("\n================== exercises start ================");
   let let_q = vec![3, 2, 14, 53, 1, 14, 2, 43, 12, 45, 4];
@@ -71,8 +107,19 @@ pub fn print() {
   let second_q = String::from("hello first apple world");
   let second_a = second(second_q);
 
-  println!("first anwser should be 12: {:?}", first_a);
-  println!("second anwser should be 12: {:?}", second_a);
+  let mut third_q = Third::new();
+  third_q.add(String::from("Add aaa to Engineering")).unwrap();
+  third_q.add(String::from("Add eee to Engineering")).unwrap();
+  third_q.add(String::from("Add ddd to Engineering")).unwrap();
+  third_q.add(String::from("Add Amir to Sales")).unwrap();
+
+  let third_a = third_q.clone().get_all_people(String::from("Engineering"));
+  let third_b = third_q.clone().get_all_people(String::from("Sales"));
+
+  println!("first anwser is: {:?}", first_a);
+  println!("second anwser is: {:?}", second_a);
+  println!("third a anwser is: {:?}", third_a);
+  println!("third b anwser is: {:?}", third_b);
   println!("\n================== exercises end ================\n");
 
 }
