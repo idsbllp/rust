@@ -8,6 +8,7 @@ mod enums;
 mod server;
 mod manage_project;
 mod collections;
+mod error;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -32,6 +33,8 @@ fn main() {
     manage_project::print();
 
     collections::print();
+
+    error::print();
 
     println!("Hello, world!");
 }
