@@ -9,6 +9,7 @@ mod server;
 mod manage_project;
 mod collections;
 mod error;
+mod generic_types;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -35,6 +36,8 @@ fn main() {
     collections::print();
 
     error::print();
+
+    generic_types::print();
 
     println!("Hello, world!");
 }
